@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{72E0AB83-75F1-4B3A-B173-B7B3FA7757EC}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="BillingProject.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\..\TutC.2-1_Mixed Exercises (SD)\TutC.2-1_Mixed Exercises (SD)\ST1Project1.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\..\Tut B 2-2\TutB.2_2 StringManip SOL\TutB.2_2 StringManip SOL\AnsiStr_p.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="BillingProject">
+        <MSBuild Projects="BillingProject.cbproj"/>
+    </Target>
+    <Target Name="BillingProject:Clean">
+        <MSBuild Projects="BillingProject.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BillingProject:Make">
+        <MSBuild Projects="BillingProject.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="ST1Project1">
+        <MSBuild Projects="..\..\..\TutC.2-1_Mixed Exercises (SD)\TutC.2-1_Mixed Exercises (SD)\ST1Project1.cbproj"/>
+    </Target>
+    <Target Name="ST1Project1:Clean">
+        <MSBuild Projects="..\..\..\TutC.2-1_Mixed Exercises (SD)\TutC.2-1_Mixed Exercises (SD)\ST1Project1.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ST1Project1:Make">
+        <MSBuild Projects="..\..\..\TutC.2-1_Mixed Exercises (SD)\TutC.2-1_Mixed Exercises (SD)\ST1Project1.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="AnsiStr_p">
+        <MSBuild Projects="..\..\..\Tut B 2-2\TutB.2_2 StringManip SOL\TutB.2_2 StringManip SOL\AnsiStr_p.cbproj"/>
+    </Target>
+    <Target Name="AnsiStr_p:Clean">
+        <MSBuild Projects="..\..\..\Tut B 2-2\TutB.2_2 StringManip SOL\TutB.2_2 StringManip SOL\AnsiStr_p.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AnsiStr_p:Make">
+        <MSBuild Projects="..\..\..\Tut B 2-2\TutB.2_2 StringManip SOL\TutB.2_2 StringManip SOL\AnsiStr_p.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="BillingProject;ST1Project1;AnsiStr_p"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="BillingProject:Clean;ST1Project1:Clean;AnsiStr_p:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="BillingProject:Make;ST1Project1:Make;AnsiStr_p:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
